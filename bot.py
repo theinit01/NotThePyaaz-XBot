@@ -15,7 +15,13 @@ password = os.environ.get("REDDIT_PASSWORD")
 client_id = os.environ.get("REDDIT_CLIENT_ID")
 client_secret = os.environ.get("REDDIT_CLIENT_SECRET")
 
-reddit_instance  = praw.Reddit(client_id=client_id, client_secret=client_secret, username=username, password=password, user_agent="A news feed Bot made by u/Theinit01")
+reddit_instance  = praw.Reddit(
+    client_id=client_id, 
+    client_secret=client_secret,
+    username=username, 
+    password=password, 
+    user_agent="A news feed Bot made by u/Theinit01"
+)
 
 subreddit = reddit_instance.subreddit("notthepyaaz")
 top_posts = subreddit.rising(limit=10)
