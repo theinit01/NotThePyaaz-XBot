@@ -34,7 +34,7 @@ try:
 except FileNotFoundError:
     posted_posts = set()
 
-
+new_added = set()
 for post in top_posts:
     for post in top_posts:
         if not post.is_self:
@@ -45,10 +45,11 @@ for post in top_posts:
                 url = post.url
                 title = post.title
                 funny_title = humoroize(title)
-                tweet = funny_title + "\n\n" + url + "\n#Notthepyaaz #NothteOnion"
+                tweet = funny_title + "\n#Notthepyaaz #nottheonion" + "\n\n" + url 
                 create_post(tweet)
                 #log_activity(f"Posted tweet with ID {post.id} - '{funny_title}'")
                 posted_posts.add(post.id)
+                new_added.add(post.id)
             except Exception as e:
                 log_activity(f"Failed to post tweet with ID {post.id} - {e}")
 
@@ -56,4 +57,4 @@ for post in top_posts:
 with open(json_file, 'w') as f:
     json.dump(list(posted_posts), f)
 
-log_activity(f"Script executed. {len(posted_posts)} tweets were posted.")
+log_activity(f"Script executed. {len(new_added)} tweets were posted. - {new_added}" )
