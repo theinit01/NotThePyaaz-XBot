@@ -55,3 +55,5 @@ for post in top_posts:
 # Save updated posted_posts set to JSON file
 with open(json_file, 'w') as f:
     json.dump(list(posted_posts), f)
+
+log_activity(f"Script executed. {len(posted_posts)} tweets were posted.")
