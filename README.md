@@ -1,5 +1,9 @@
 
 # NotThePyaaz Twitter Bot 🤖
+<p align="center">
+<img src="/assets/diagram.png">
+</p>
+
 
 NotThePyaaz is a Twitter bot that fetches the funniest and weirdest headlines from the r/notthepyaaz subreddit and tweets them in a humorous way. It's a parody bot inspired by the NotTheOnion subreddit, delivering daily doses of humor and satire.
 
