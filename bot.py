@@ -36,22 +36,21 @@ except FileNotFoundError:
 
 new_added = set()
 for post in top_posts:
-    for post in top_posts:
-        if not post.is_self:
-            if post.id in posted_posts:
-                continue
+    if not post.is_self:
+        if post.id in posted_posts:
+            continue
             
-            try:
-                url = post.url
-                title = post.title
-                funny_title = humoroize(title)
-                tweet = funny_title + "\n#Notthepyaaz #nottheonion" + "\n\n" + url 
-                create_post(tweet)
-                #log_activity(f"Posted tweet with ID {post.id} - '{funny_title}'")
-                posted_posts.add(post.id)
-                new_added.add(post.id)
-            except Exception as e:
-                log_activity(f"Failed to post tweet with ID {post.id} - {e}")
+        try:
+            url = post.url
+            title = post.title
+            funny_title = humoroize(title)
+            tweet = funny_title + "\n#Notthepyaaz #nottheonion" + "\n\n" + url 
+            create_post(tweet)
+            #log_activity(f"Posted tweet with ID {post.id} - '{funny_title}'")
+            posted_posts.add(post.id)
+            new_added.add(post.id)
+        except Exception as e:
+            log_activity(f"Failed to post tweet with ID {post.id} - {e}")
 
 # Save updated posted_posts set to JSON file
 with open(json_file, 'w') as f:
